@@ -1,0 +1,36 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo:4.4
+    restart: always
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: prueba
+    ports:
+        - 27017:27017
+    volumes:
+        - mongodbdata:/data/db
+    networks:
+      - mired      
+  app:
+    build: .
+  # image: docker.pkg.github.com/vittyx/the-real-devops-challenge/image:latest
+    container_name: app-challenge
+    ports:
+        - 8080:8080
+    environment:
+      MONGO_URI: mongodb://root:example@mongodb:27017/prueba?authSource=admin
+    networks:
+      - mired
+
+volumes:
+  mongodbdata:      
+
+networks:
+  mired:
+    external: false
