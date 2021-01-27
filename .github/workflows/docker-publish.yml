@@ -27,7 +27,7 @@ jobs:
       - name: Set up Python 3
         uses: actions/setup-python@v2
         with:
-                python-version: 3.7
+          python-version: 3.7
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -35,7 +35,7 @@ jobs:
           if [ -f requirements_dev.txt ]; then pip install -r requirements_dev.txt; fi
       - name: Test with Tox
         run: |
-          tox
+          tox -e py
       - name: Test build image
         run: |
          docker build . --file Dockerfile
