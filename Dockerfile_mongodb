@@ -1,5 +1,10 @@
 FROM mongo
 
-COPY restaurant.json /restaurant.json
 
-CMD mongoimport -u root -p example --db prueba --collection restaurant --type json --file /restaurant.json
+COPY ./data/init-users.sh /docker-entrypoint-initdb.d/init-users.sh
+COPY ./data/seed.sh /docker-entrypoint-initdb.d/seed.sh
+COPY ./data/restaurant.json ./data/restaurant.json
+
+EXPOSE 27017
+
+CMD ["mongod"]
