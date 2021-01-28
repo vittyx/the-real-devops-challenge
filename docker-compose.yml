@@ -5,6 +5,9 @@ services:
 
   mongo:
     image: mongo:4.4
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile_mongodb 
     restart: always
     container_name: mongodb
     environment:
@@ -14,7 +17,10 @@ services:
     ports:
         - 27017:27017
     volumes:
-        - mongodbdata:/data/db
+      # seeding scripts
+      - ./data:/docker-entrypoint-initdb.d   
+      - mongodbdata:/data/db
+
     networks:
       - mired      
   app:

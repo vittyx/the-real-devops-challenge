@@ -1,0 +1,5 @@
+FROM mongo
+
+COPY restaurant.json /restaurant.json
+
+CMD mongoimport -u root -p example --db prueba --collection restaurant --type json --file /restaurant.json
