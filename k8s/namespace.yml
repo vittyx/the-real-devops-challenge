@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2021-01-28T11:36:17Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:phase: {}
+    manager: kubectl-create
+    operation: Update
+    time: "2021-01-28T11:36:17Z"
+  name: realchallenge
+  resourceVersion: "7297"
+  uid: bd8e39e7-820c-4a10-9db2-44a2757fecbf
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active
