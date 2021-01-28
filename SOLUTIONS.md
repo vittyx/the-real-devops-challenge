@@ -14,6 +14,7 @@ We want to fix the second endpoint. Return a json object instead of a json array
 
 #### Cambios/Changes
 Se han realizado algunos cambios en el código Python:
+
 Some changes have been made to the Python code:
 
 # app.py
